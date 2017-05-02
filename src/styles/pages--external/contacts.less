@@ -1,0 +1,43 @@
+.contact-block{
+  position: relative;
+  .contacts{
+    background-color: rgba(37,37,37,0.95);
+    position: absolute;
+    top: 80px;
+    left: 70px;
+    width: 45%;
+    height: 700px;
+    color: @white;
+    padding: 120px 80px;
+    &>div{
+      margin-bottom: 20px;
+    }
+    .email{
+      margin-bottom: 100px;
+    }
+  }
+  .phone, .title{
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  form .title{
+    margin-bottom: 20px;
+  }
+  input{
+    margin: 30px 0;
+  }
+  &--full{
+    padding: 0;
+    .contacts{
+      top: 0px;
+      left: 0px;
+      width: 50%;
+    }
+  }
+}
+#map{
+  width: 100%;
+  height: 700px;
+}

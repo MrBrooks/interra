@@ -1,0 +1,85 @@
+.tabs{
+  .pag{
+    text-align: left;
+    width: 100%;
+    transition: all 500ms;
+    cursor: pointer;
+    padding: 15px 0;
+    border-bottom: 5px solid transparent;
+    font-family: "UniSansHeavyCaps";
+    color: @gray;
+    cursor: pointer;
+    &:hover{
+      border-bottom: 5px solid @gray-light;
+    }
+    &.active{
+      //border-bottom: 5px solid @black;
+      color: @black;
+    }
+  }
+  .top-float,.bottom-float{
+    position: absolute;
+    left: 0;
+    width: 25%;
+    height: 5px;
+    background-color: @black;
+    transition: left 500ms;
+  }
+  .top-float{
+    top: 0;
+  }
+  .bottom-float{
+    bottom: 0;
+  }
+  .pag.active + .pag + .pag + .pag + .bottom-float{
+    left: 0%;
+    width: 25%;
+  }
+  .pag + .pag.active + .pag + .pag + .bottom-float{
+    left: 25%;
+    width: 25%;
+  }
+  .pag + .pag + .pag.active + .pag + .bottom-float{
+    left: 50%;
+    width: 25%;
+  }
+  .pag + .pag + .pag + .pag.active + .bottom-float{
+    left: 75%;
+    width: 25%;
+  }
+
+
+  .pagination{
+    position: relative;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    border-bottom: 1px solid @gray-light;
+    margin-bottom: 50px;
+  }
+  .content{
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  .tab{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index:998;
+    transition: opacity 500ms 0ms, transform 500ms 500ms;
+    transform: translate3D(0,100%,0);
+    &.active{
+      z-index: 999;
+      opacity: 1;
+      transform: translate3D(0,0,0);
+      transition: opacity 500ms 0ms, transform 500ms 0ms;
+    }
+  }
+}

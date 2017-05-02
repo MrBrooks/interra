@@ -1,0 +1,41 @@
+.video-block{
+  position: relative;
+}
+.video-preview{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 400px;
+  width: 100%;
+  position: relative;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  transition: all 500ms;
+  &.active{
+    transform: scale(1);
+  }
+  .play-btn{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+.video-player{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  transition: all 500ms 250ms;
+  &.active{
+    transform: scale(1);
+
+  }
+}

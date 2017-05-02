@@ -1,0 +1,189 @@
+.project-block{
+  text-align: center;
+}
+.projects-grid{
+  &>div{
+    width: 50%;
+    float: left;
+  }
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+.project{
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  .image{
+    width: 100%;
+    height: 400px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/images/project.png);
+  }
+  .overlay{
+    color: @white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0ms 400ms, opacity 200ms 400ms;
+    padding: 10px;
+  }
+  .bg{
+    background-color: rgba(37,37,37,.9);
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 400ms 250ms, opacity 400ms 0ms;
+  }
+  .more{
+    text-align: center;
+  }
+  .info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    width: 66%;
+    height: 66%;
+    transform: translate3D(-200%, 0, 0);
+    transition: transform 400ms 0ms;
+  }
+  a{
+    color: inherit;
+    &:hover, &:focus{
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  .title{
+    &:extend(h2);
+    color: @white;
+    margin-bottom: 35px;
+  }
+  .description{
+    text-align: left;
+    margin-bottom: 35px;
+  }
+  &:hover{
+    .overlay{
+      opacity: 1;
+      transform: scale(1);
+      transition: transform 0ms 0ms, opacity 0ms 0ms;
+    }
+    .bg{
+      opacity: 1;
+      transform: scale(1);
+      transition: transform 400ms 0ms, opacity 400ms 200ms;
+    }
+    .info{
+      transform: translate3D(0, 0, 0);
+      transition: transform 400ms 200ms;
+    }
+  }
+}
+.project-tabs{
+  .step{
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  .main-info, .list-info{
+    width: 50%;
+    float: left;
+  }
+  .main-info{
+    padding-right: 10%;
+  }
+  .number{
+    font-family: "UniSansHeavyCaps";
+    font-size: 40px;
+  }
+  .quote{
+    font-weight: 700;
+  }
+  .price{
+    margin-top: 100px;
+  }
+}
+.project-full-block{
+  padding: 0;
+}
+.full-project{
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  .extra-info{
+    width: 250px;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    text-align: left;
+    .details{
+      padding: 30px 20px;
+      background-color: fade(@white, 90%);
+    }
+  }
+  .main-info{
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%/12*4;
+    text-align: left;
+    color: @white;
+    padding-left: 80px;
+  }
+  .text-block{
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+  }
+}
+.project-team-block{
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .image{
+    width: 80px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .text{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    padding-left: 10px;
+  }
+  .name{
+    font-family: "UniSansHeavyCaps";
+    text-transform: uppercase;
+  }
+  img{
+    width: 100%;
+  }
+  .card{
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+    margin-bottom: 20px;
+  }
+}

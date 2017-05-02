@@ -1,0 +1,27 @@
+.steps-block{
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .number{
+    font-family: "UniSansHeavyCaps";
+    font-size: 88px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .content{
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 80px;
+  }
+  .step{
+    float: left;
+    width: 100%/12*5;
+    display: inline-flex;
+    min-height: 135px;
+    &:nth-child(3){
+      margin-left: 100%/12*2;
+    }
+  }
+}
