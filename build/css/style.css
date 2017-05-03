@@ -2589,6 +2589,16 @@ footer a:hover
 {
     overflow: hidden;
 }
+#logo
+{
+    position: absolute;
+    z-index: 1000;
+    top: 5px;
+    right: 0;
+    left: 0;
+
+    margin: auto;
+}
 .menu
 {
     position: absolute;
@@ -2863,10 +2873,36 @@ ul.list li
 {
     margin-bottom: 20px;
 }
+@-webkit-keyframes rotating
+{
+    from
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to
+    {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+@keyframes rotating
+{
+    from
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to
+    {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
 .preloader
 {
     position: fixed;
-    z-index: -1;
+    z-index: 999;
     top: 0;
     right: 0;
     bottom: 0;
@@ -2892,6 +2928,51 @@ ul.list li
 {
     width: 100%;
     height: 100%;
+
+    -webkit-transition-delay: 0ms;
+            transition-delay: 0ms;
+}
+.preloader.active .progress
+{
+    height: 100%;
+
+    -webkit-transition: all 10ms 0ms;
+            transition: all 10ms 0ms;
+}
+.preloader.active .progress svg
+{
+    -webkit-transition: -webkit-transform 2000ms;
+            transition:         transform 2000ms;
+}
+.preloader.active .progress svg:nth-child(1)
+{
+    -webkit-transform: rotate(0deg) translateY(100%);
+            transform: rotate(0deg) translateY(100%);
+}
+.preloader.active .progress svg:nth-child(2)
+{
+    -webkit-transform: rotate(60deg) translateY(100%);
+            transform: rotate(60deg) translateY(100%);
+}
+.preloader.active .progress svg:nth-child(3)
+{
+    -webkit-transform: rotate(120deg) translateY(100%);
+            transform: rotate(120deg) translateY(100%);
+}
+.preloader.active .progress svg:nth-child(4)
+{
+    -webkit-transform: rotate(180deg) translateY(100%);
+            transform: rotate(180deg) translateY(100%);
+}
+.preloader.active .progress svg:nth-child(5)
+{
+    -webkit-transform: rotate(240deg) translateY(100%);
+            transform: rotate(240deg) translateY(100%);
+}
+.preloader.active .progress svg:nth-child(6)
+{
+    -webkit-transform: rotate(300deg) translateY(100%);
+            transform: rotate(300deg) translateY(100%);
 }
 .preloader__left
 {
@@ -2901,8 +2982,8 @@ ul.list li
     width: 0;
     height: 100%;
 
-    -webkit-transition: width 1000ms;
-            transition: width 1000ms;
+    -webkit-transition: width 1000ms 1000ms;
+            transition: width 1000ms 1000ms;
 }
 .preloader__right
 {
@@ -2912,8 +2993,8 @@ ul.list li
     width: 0;
     height: 100%;
 
-    -webkit-transition: width 1000ms;
-            transition: width 1000ms;
+    -webkit-transition: width 1000ms 1000ms;
+            transition: width 1000ms 1000ms;
 }
 .preloader__top
 {
@@ -2923,8 +3004,8 @@ ul.list li
     width: 100%;
     height: 0;
 
-    -webkit-transition: height 1000ms;
-            transition: height 1000ms;
+    -webkit-transition: height 1000ms 1000ms;
+            transition: height 1000ms 1000ms;
 }
 .preloader__bottom
 {
@@ -2934,8 +3015,65 @@ ul.list li
     width: 100%;
     height: 0;
 
-    -webkit-transition: height 1000ms;
-            transition: height 1000ms;
+    -webkit-transition: height 1000ms 1000ms;
+            transition: height 1000ms 1000ms;
+}
+.preloader .progress
+{
+    width: 100%;
+    height: 0;
+
+    -webkit-transition: all 10ms 1500ms;
+            transition: all 10ms 1500ms;
+    -webkit-animation: rotating 5000ms linear infinite;
+            animation: rotating 5000ms linear infinite;
+
+    background-color: transparent;
+}
+.preloader .progress svg
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+
+    -webkit-transition: -webkit-transform 5000ms;
+            transition:         transform 5000ms;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+}
+.preloader .progress svg:nth-child(1)
+{
+    -webkit-transform: rotate(0deg) translateY(10000px);
+            transform: rotate(0deg) translateY(10000px);
+}
+.preloader .progress svg:nth-child(2)
+{
+    -webkit-transform: rotate(60deg) translateY(10000px);
+            transform: rotate(60deg) translateY(10000px);
+}
+.preloader .progress svg:nth-child(3)
+{
+    -webkit-transform: rotate(120deg) translateY(10000px);
+            transform: rotate(120deg) translateY(10000px);
+}
+.preloader .progress svg:nth-child(4)
+{
+    -webkit-transform: rotate(180deg) translateY(10000px);
+            transform: rotate(180deg) translateY(10000px);
+}
+.preloader .progress svg:nth-child(5)
+{
+    -webkit-transform: rotate(240deg) translateY(10000px);
+            transform: rotate(240deg) translateY(10000px);
+}
+.preloader .progress svg:nth-child(6)
+{
+    -webkit-transform: rotate(300deg) translateY(10000px);
+            transform: rotate(300deg) translateY(10000px);
 }
 .menu-btn
 {

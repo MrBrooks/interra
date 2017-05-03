@@ -77,7 +77,14 @@ footer{
 .noscroll{
   overflow: hidden;
 }
-
+#logo{
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1000;
+}
 .menu{
   position: absolute;
   top: 0px;
@@ -268,14 +275,20 @@ ul.list{
   }
 }
 
+
+@keyframes rotating {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
 .preloader{
   @dur: 1000ms;
+  @logo_delay: 1000ms;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right:0;
-  z-index: -1;
+  z-index: 999;
   transition: z-index 10ms @dur;
   &>div{
     position: fixed;
@@ -289,6 +302,32 @@ ul.list{
     &>div{
       width: 100%;
       height: 100%;
+      transition-delay: 0ms;
+    }
+    .progress{
+      transition: all 10ms 0ms;
+      height: 100%;
+    }
+    .progress svg{
+      transition: transform 2000ms;
+    }
+    .progress svg:nth-child(1){
+      transform: rotate(0deg) translateY(100%);
+    }
+    .progress svg:nth-child(2){
+      transform: rotate(60deg) translateY(100%);
+    }
+    .progress svg:nth-child(3){
+      transform: rotate(120deg) translateY(100%);
+    }
+    .progress svg:nth-child(4){
+      transform: rotate(180deg) translateY(100%);
+    }
+    .progress svg:nth-child(5){
+      transform: rotate(240deg) translateY(100%);
+    }
+    .progress svg:nth-child(6){
+      transform: rotate(300deg) translateY(100%);
     }
   }
   &__left{
@@ -296,14 +335,14 @@ ul.list{
     left: 0;
     height: 100%;
     width: 0%;
-    transition: width @dur;
+    transition: width @dur @dur;
   }
   &__right{
     top: 0;
     right: 0;
     height: 100%;
     width: 0%;
-    transition: width @dur;
+    transition: width @dur @dur;
   }
   &__top{
     top: 0;
@@ -311,15 +350,53 @@ ul.list{
     width: 100%;
     height: 0%;
 
-    transition: height @dur;
+    transition: height @dur @dur;
   }
   &__bottom{
     bottom: 0;
     left: 0;
     width: 100%;
     height: 0%;
-    transition: height @dur;
+    transition: height @dur @dur;
+  }
+  .progress{
+    @dist: 50px;
+    animation: rotating 5000ms linear infinite;
+    width: 100%;
+    height: 0;
+    background-color: transparent;
+    transition: all 10ms 1500ms;
+    svg{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      transform-origin: 50% 50%;
+      transition: transform 5000ms;
+    }
+    svg:nth-child(1){
+      transform: rotate(0deg) translateY(10000px);
+    }
+    svg:nth-child(2){
+      transform: rotate(60deg) translateY(10000px);
+    }
+    svg:nth-child(3){
+      transform: rotate(120deg) translateY(10000px);
+    }
+    svg:nth-child(4){
+      transform: rotate(180deg) translateY(10000px);
+    }
+    svg:nth-child(5){
+      transform: rotate(240deg) translateY(10000px);
+    }
+    svg:nth-child(6){
+      transform: rotate(300deg) translateY(10000px);
+    }
   }
 }
+
+
 
 
