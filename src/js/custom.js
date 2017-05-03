@@ -11,6 +11,9 @@ $(document).ready(function() {
   var langsSwitcher = new LanguageSwitcher();
   var simpleSlider = new SimpleSlider();
   var projectSlider = new ProjectSlider();
+  var fullProjectSlider = new SimpleFadeSlider({
+    selector: "#full-project-slider"
+  });
   var popups = new Popup();
   var teamSlider = new TeamSlider();
   var tabs = new Tabs();
@@ -94,6 +97,46 @@ function SimpleSlider(){
   init();
 }
 
+function SimpleFadeSlider(config){
+  var defs = {
+    selector: ".simple-fade-slider",
+    next: ".next",
+    prev: ".prev",
+    active: "active",
+    slide: ".item",
+    anim_dutarion: 500
+  };
+
+  var opts = $.extend(defs, config);
+
+  var slider, next, prev, curr, slides, count;
+
+  function init(){
+    slider = $(opts.selector);
+    prev = slider.find(opts.prev);
+    next = slider.find(opts.next);
+    slides = slider.find(opts.slide);
+    count = slides.length;
+    curr = 0;
+
+    next.on('click', nextSlide);
+    prev.on('click', prevSlide);
+  }
+
+  function nextSlide(){
+    slides.removeClass(opts.active);
+    $(slides[++curr % count]).addClass(opts.active);
+  }
+  function prevSlide(){
+    curr = curr === 0? count - 1: curr - 1;
+    slides.removeClass(opts.active);
+    $(slides[curr]).addClass(opts.active);
+  }
+
+
+  init();
+}
+
 function ClassTiker(options){
   var defs = {
     selector: '.tik',
@@ -167,6 +210,7 @@ function ProjectSlider(conf){
     if(config.scope < $(window).height()){
       config.scope = $(window).height();
     }
+    slider.children(".slides").width(slider.width());
     updateParts();
 
     prev.on('click', Prev);
