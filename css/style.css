@@ -2902,14 +2902,14 @@ ul.list li
 .preloader
 {
     position: fixed;
-    z-index: 999;
+    z-index: -1;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
 
-    -webkit-transition: z-index 10ms 1000ms;
-            transition: z-index 10ms 1000ms;
+    -webkit-transition: z-index 10ms 2000ms;
+            transition: z-index 10ms 2000ms;
 }
 .preloader > div
 {
