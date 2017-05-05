@@ -18,7 +18,7 @@ $(document).ready(function() {
   var popups = new Popup();
   var teamSlider = new TeamSlider();
   var tabs = new Tabs();
-  // ajaxImitation(); //TODO: to remove
+  ajaxImitation(); //TODO: to remove
   var videoBlock = new VideoBlock(youtubePlayer);
 
   var injector = new Injector([
@@ -115,14 +115,16 @@ function SimpleFadeSlider(config){
 
   function init(){
     slider = $(opts.selector);
-    prev = slider.find(opts.prev);
-    next = slider.find(opts.next);
-    slides = slider.find(opts.slide);
-    count = slides.length;
-    curr = 0;
+    if(slider.length !== 0){
+      prev = slider.find(opts.prev);
+      next = slider.find(opts.next);
+      slides = slider.find(opts.slide);
+      count = slides.length;
+      curr = 0;
 
-    next.on('click', nextSlide);
-    prev.on('click', prevSlide);
+      next.on('click', nextSlide);
+      prev.on('click', prevSlide);
+    }
   }
 
   function nextSlide(){
@@ -204,27 +206,27 @@ function ProjectSlider(conf, SM){
 
   function init(){
     slider = $(config.slider);
-    slides = $(config.slider + " " + config.slides);
-    prev = $(config.slider + " " + config.prev);
-    next = $(config.slider + " " + config.next);
-    count = slides.length;
-    current = 0;
-    if(config.scope < $(window).height()){
-      config.scope = $(window).height();
+    if(slider.length !== 0){
+      slides = $(config.slider + " " + config.slides);
+      prev = $(config.slider + " " + config.prev);
+      next = $(config.slider + " " + config.next);
+      count = slides.length;
+      current = 0;
+      if(config.scope < $(window).height()){
+        config.scope = $(window).height();
+      }
+      slider.children(".slides").width(slider.width());
+      updateParts();
+
+      prev.on('click', Prev);
+      next.on('click', Next);
+
+      initSM();
     }
-    slider.children(".slides").width(slider.width());
-    updateParts();
-
-    prev.on('click', Prev);
-    next.on('click', Next);
-
-    // $(window).on('scroll', onScroll);
-    initSM();
   }
 
   function updateDisplace(e){
     displace = (e.progress - 0.5)*2*config.maxDisplace;
-    console.log(displace);
     leftPart.css('transform', 'translateY('+displace+'px)');
     rightPart.css('transform', 'translateY(-'+displace+'px)');
   }
@@ -301,9 +303,11 @@ function VideoBlock(initializer){
 
   function init(){
     video = $('#video-player');
-    btn = $('#video-play-btn');
+    if(video.length !== 0){
+      btn = $('#video-play-btn');
 
-    btn.on('click', onBtnClick);
+      btn.on('click', onBtnClick);
+    }
   }
 
   function onBtnClick(){
@@ -330,7 +334,9 @@ function Tabs(config) {
 
   function init(){
     tabs = $(opts.select);
-    tabs.each(initEach);
+    if(tabs.length !== 0){
+      tabs.each(initEach);
+    }
   }
 
   function initEach(){
@@ -370,9 +376,10 @@ function Popup(){
 
   function init(){
     btns = $('.popup-open');
-    body = $('html, body');
-    btns.on('click', openTarget);
-
+    if(btns.length !== 0) {
+      body = $('html, body');
+      btns.on('click', openTarget);
+    }
   }
 
   function openTarget(){
