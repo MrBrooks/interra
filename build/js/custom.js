@@ -6,19 +6,21 @@ $(window).load(function(){
   $("#preloader").removeClass('active');
 });
 $(document).ready(function() {
+  var scrollMagicController = new ScrollMagic.Controller();
   var menu = new Menu();
   var targetScroll = new TargetScroll();
   var langsSwitcher = new LanguageSwitcher();
   var simpleSlider = new SimpleSlider();
-  var projectSlider = new ProjectSlider();
+  var projectSlider = new ProjectSlider({}, scrollMagicController);
   var fullProjectSlider = new SimpleFadeSlider({
     selector: "#full-project-slider"
   });
   var popups = new Popup();
   var teamSlider = new TeamSlider();
   var tabs = new Tabs();
-  ajaxImitation(); //TODO: to remove
+  // ajaxImitation(); //TODO: to remove
   var videoBlock = new VideoBlock(youtubePlayer);
+
   var injector = new Injector([
     {
       selector: "#arrow-prev",
@@ -176,7 +178,7 @@ function ClassTiker(options){
   init();
 }
 
-function ProjectSlider(conf){
+function ProjectSlider(conf, SM){
   var defs = {
     slider: "#project-slider",
     slides: ".slide",
@@ -198,7 +200,7 @@ function ProjectSlider(conf){
 
   var config = $.extend(defs,conf);
 
-  var slider, slides, current, next, prev, count, leftPart, rightPart, displace;
+  var slider, slides, current, next, prev, count, leftPart, rightPart, displace, scene;
 
   function init(){
     slider = $(config.slider);
@@ -216,7 +218,8 @@ function ProjectSlider(conf){
     prev.on('click', Prev);
     next.on('click', Next);
 
-    $(window).on('scroll', onScroll);
+    // $(window).on('scroll', onScroll);
+    initSM();
   }
 
   function onScroll(){
@@ -227,7 +230,8 @@ function ProjectSlider(conf){
     updateDisplace();
   }
 
-  function updateDisplace(){
+  function updateDisplace(e){
+    displace = (e.progress - 0.5)*2*config.maxDisplace;
     leftPart.css('transform', 'translateY('+displace+'px)');
     rightPart.css('transform', 'translateY(-'+displace+'px)');
   }
@@ -256,6 +260,14 @@ function ProjectSlider(conf){
   function Next(){
     current = (current + 1) % count;
     Switch();
+  }
+
+  function initSM(){
+    scene = new ScrollMagic.Scene({
+      triggerElement: slider.get(0),
+      duration: $(window).height()
+    }).addTo(SM);
+    scene.on('progress', updateDisplace);
   }
 
   init();

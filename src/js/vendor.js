@@ -14,3 +14,4 @@
 /* //= ../../bower_components/parallax/deploy/jquery.parallax.min.js */
 /* //= ../../bower_components/fabricjs/dist/fabric.js */
 /* //= ../../bower_components/clipboard-js/dist/clipboard.min.js */
+//= ../../bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js
