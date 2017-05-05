@@ -224,6 +224,7 @@ function ProjectSlider(conf, SM){
 
   function updateDisplace(e){
     displace = (e.progress - 0.5)*2*config.maxDisplace;
+    console.log(displace);
     leftPart.css('transform', 'translateY('+displace+'px)');
     rightPart.css('transform', 'translateY(-'+displace+'px)');
   }
@@ -237,6 +238,7 @@ function ProjectSlider(conf, SM){
     slides.removeClass(config.active);
     $(slides[current]).addClass(config.active);
     updateParts();
+    updateDisplace({progress: displace/config.maxDisplace/2 + 0.5});
   }
 
   function Prev(){
@@ -256,7 +258,9 @@ function ProjectSlider(conf, SM){
   function initSM(){
     scene = new ScrollMagic.Scene({
       triggerElement: slider.get(0),
-      duration: $(window).height()
+      duration: $(window).height(),
+      triggerHook: 0.8
+
     }).addTo(SM);
     scene.on('progress', updateDisplace);
   }
