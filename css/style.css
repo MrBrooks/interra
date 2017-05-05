@@ -2687,6 +2687,15 @@ footer a:hover
 
     color: #fff;
 }
+@media screen and (max-width: 1024px)
+{
+    .menu .contacts
+    {
+        top: 55%;
+
+        width: 100%;
+    }
+}
 .menu .contacts > div
 {
     width: 110px;
@@ -2695,6 +2704,15 @@ footer a:hover
 
     text-align: left;
     white-space: nowrap;
+}
+@media screen and (max-width: 1024px)
+{
+    .menu .contacts > div
+    {
+        width: 100%;
+
+        text-align: center;
+    }
 }
 .menu ul
 {
@@ -2710,6 +2728,14 @@ footer a:hover
     padding: 0;
 
     list-style: none;
+}
+@media screen and (max-width: 1024px)
+{
+    .menu ul
+    {
+        height: auto;
+        padding-top: 60px;
+    }
 }
 .menu ul:after
 {
@@ -2730,6 +2756,14 @@ footer a:hover
     -webkit-transform: translateX(-400%);
             transform: translateX(-400%);
     text-align: center;
+}
+@media screen and (max-width: 1024px)
+{
+    .menu li
+    {
+        width: 100%;
+        margin-bottom: 35px;
+    }
 }
 .menu li:nth-child(1)
 {
