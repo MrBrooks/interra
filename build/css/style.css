@@ -1951,6 +1951,20 @@ hr
 /* Set custom or change third-party Less variables */
 /***************************************************/
 /* Third party */
+@media screen and (min-width: 1024px)
+{
+    .only-mobile
+    {
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px)
+{
+    .only-desktop
+    {
+        display: none;
+    }
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
@@ -2522,6 +2536,13 @@ h1
 
     letter-spacing: .4em;
 }
+@media screen and (max-width: 1024px)
+{
+    h1
+    {
+        font-size: 24px;
+    }
+}
 h2,
 .project .title
 {
@@ -2529,12 +2550,28 @@ h2,
 
     letter-spacing: .3em;
 }
+@media screen and (max-width: 1024px)
+{
+    h2,
+    .project .title
+    {
+        font-size: 18px;
+    }
+}
 h3,
 .team-card__name
 {
     font-size: 17px;
 
     letter-spacing: .1em;
+}
+@media screen and (max-width: 1024px)
+{
+    h3,
+    .team-card__name
+    {
+        font-size: 16px;
+    }
 }
 .white
 {
@@ -2556,11 +2593,26 @@ header .menu-btn
     top: 25px;
     left: 25px;
 }
+@media screen and (max-width: 1024px)
+{
+    header .menu-btn
+    {
+        top: 0;
+        left: 0;
+    }
+}
 header .lang-switcher
 {
     position: absolute;
     top: 25px;
     left: 100px;
+}
+@media screen and (max-width: 1024px)
+{
+    header .lang-switcher
+    {
+        display: none;
+    }
 }
 footer
 {
@@ -2598,6 +2650,13 @@ footer a:hover
     left: 0;
 
     margin: auto;
+}
+@media screen and (max-width: 1024px)
+{
+    #logo
+    {
+        top: -10px;
+    }
 }
 .menu
 {
@@ -3047,33 +3106,33 @@ ul.list li
 }
 .preloader .progress svg:nth-child(1)
 {
-    -webkit-transform: rotate(0deg) translateY(10000px);
-            transform: rotate(0deg) translateY(10000px);
+    -webkit-transform: rotate(0deg) translateY(4096px);
+            transform: rotate(0deg) translateY(4096px);
 }
 .preloader .progress svg:nth-child(2)
 {
-    -webkit-transform: rotate(60deg) translateY(10000px);
-            transform: rotate(60deg) translateY(10000px);
+    -webkit-transform: rotate(60deg) translateY(4096px);
+            transform: rotate(60deg) translateY(4096px);
 }
 .preloader .progress svg:nth-child(3)
 {
-    -webkit-transform: rotate(120deg) translateY(10000px);
-            transform: rotate(120deg) translateY(10000px);
+    -webkit-transform: rotate(120deg) translateY(4096px);
+            transform: rotate(120deg) translateY(4096px);
 }
 .preloader .progress svg:nth-child(4)
 {
-    -webkit-transform: rotate(180deg) translateY(10000px);
-            transform: rotate(180deg) translateY(10000px);
+    -webkit-transform: rotate(180deg) translateY(4096px);
+            transform: rotate(180deg) translateY(4096px);
 }
 .preloader .progress svg:nth-child(5)
 {
-    -webkit-transform: rotate(240deg) translateY(10000px);
-            transform: rotate(240deg) translateY(10000px);
+    -webkit-transform: rotate(240deg) translateY(4096px);
+            transform: rotate(240deg) translateY(4096px);
 }
 .preloader .progress svg:nth-child(6)
 {
-    -webkit-transform: rotate(300deg) translateY(10000px);
-            transform: rotate(300deg) translateY(10000px);
+    -webkit-transform: rotate(300deg) translateY(4096px);
+            transform: rotate(300deg) translateY(4096px);
 }
 .menu-btn
 {
@@ -3850,8 +3909,17 @@ input[type='text'].invalid
 }
 .full-project-slider
 {
+    position: relative;
+
     width: 100%;
     height: 100%;
+}
+@media screen and (max-width: 1024px)
+{
+    .full-project-slider
+    {
+        height: 100vh;
+    }
 }
 .full-project-slider .slides
 {
@@ -3865,14 +3933,42 @@ input[type='text'].invalid
 {
     position: absolute;
     bottom: calc(50% - 177px);
+
+    width: 44px;
+    height: 44px;
+}
+@media screen and (max-width: 1024px)
+{
+    .full-project-slider .prev,
+    .full-project-slider .next
+    {
+        top: 0;
+        bottom: 0;
+
+        margin: auto;
+    }
 }
 .full-project-slider .prev
 {
     left: 80px;
 }
+@media screen and (max-width: 1024px)
+{
+    .full-project-slider .prev
+    {
+        left: 0;
+    }
+}
 .full-project-slider .next
 {
     right: 280px;
+}
+@media screen and (max-width: 1024px)
+{
+    .full-project-slider .next
+    {
+        right: 0;
+    }
 }
 .full-project-slider .item
 {
@@ -4253,9 +4349,19 @@ input[type='text'].invalid
     background-position: 50% 50%;
     background-size: cover;
 }
+@media screen and (max-width: 1024px)
+{
+    .full-project
+    {
+        overflow: visible;
+
+        height: auto;
+    }
+}
 .full-project .extra-info
 {
     position: absolute;
+    z-index: 999;
     top: 20%;
     right: 0;
 
@@ -4269,9 +4375,27 @@ input[type='text'].invalid
 
     background-color: rgba(255, 255, 255, .9);
 }
+@media screen and (max-width: 1024px)
+{
+    .full-project .extra-info .details
+    {
+        background-color: #f4f4f4;
+    }
+}
+@media screen and (max-width: 1024px)
+{
+    .full-project .extra-info
+    {
+        position: relative;
+        top: 0;
+
+        width: 100%;
+    }
+}
 .full-project .main-info
 {
     position: absolute;
+    z-index: 999;
     top: 30%;
     left: 0;
 
@@ -4281,6 +4405,30 @@ input[type='text'].invalid
     text-align: left;
 
     color: #fff;
+}
+@media screen and (max-width: 1024px)
+{
+    .full-project .main-info
+    {
+        position: relative;
+        top: 0;
+
+        width: 100%;
+        height: 100vh;
+        padding: 120px 10px 0;
+
+        background-image: url(../img/images/1.png);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+    }
+}
+@media screen and (max-width: 1024px)
+{
+    .full-project .btn
+    {
+        width: 100%;
+    }
 }
 .full-project .text-block
 {
@@ -4730,7 +4878,7 @@ input[type='text'].invalid
     border-radius: 25px;
     background-color: #fff;
 }
-@media screen and (max-width: 767px)
+@media screen and (max-width: 1024px)
 {
     .popup > div
     {
@@ -4739,6 +4887,7 @@ input[type='text'].invalid
 
         width: 100%;
         height: auto;
+        max-height: 100vh;
         padding: 40px 20px;
 
         border-radius: 0;
@@ -4810,7 +4959,7 @@ input[type='text'].invalid
     border-radius: 0;
     background-color: #fff;
 }
-@media screen and (max-width: 767px)
+@media screen and (max-width: 1024px)
 {
     .popup--side > div
     {

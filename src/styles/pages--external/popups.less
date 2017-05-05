@@ -26,14 +26,16 @@
     padding: 50px 70px;
     background-color: @white;
     border-radius: 25px;
-    @media screen and (max-width: @mobile){
+    .mobile({
       width: 100%;
       height: auto;
+      max-height: 100vh;
       top: 0;
       bottom: auto;
       border-radius: 0;
       padding: 40px 20px;
-    }
+    });
+
   }
   .popup-close{
     position: fixed;

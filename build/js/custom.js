@@ -128,8 +128,9 @@ function SimpleFadeSlider(config){
   }
 
   function nextSlide(){
+    curr = (curr+1) % count;
     slides.removeClass(opts.active);
-    $(slides[++curr % count]).addClass(opts.active);
+    $(slides[curr]).addClass(opts.active);
   }
   function prevSlide(){
     curr = curr === 0? count - 1: curr - 1;

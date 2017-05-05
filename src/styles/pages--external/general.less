@@ -24,14 +24,17 @@ h1,h2,h3{
 h1{
   font-size: 32px;
   letter-spacing: 0.4em;
+  .mobile({ font-size: 24px;});
 }
 h2{
   font-size: 24px;
   letter-spacing: 0.3em;
+  .mobile({ font-size: 18px;});
 }
 h3{
   font-size: 17px;
   letter-spacing: 0.1em;
+  .mobile({ font-size: 16px;});
 }
 
 //CSS CLASSES
@@ -51,11 +54,13 @@ header{
     position: absolute;
     left: 25px;
     top: 25px;
+    .mobile({ left: 0; top: 0;});
   }
   .lang-switcher{
     position: absolute;
     top: 25px;
     left: 100px;
+    .only-desktop;
   }
 }
 footer{
@@ -84,6 +89,7 @@ footer{
   right: 0;
   margin: auto;
   z-index: 1000;
+  .mobile({ top: -10px;});
 }
 .menu{
   position: absolute;
@@ -361,6 +367,7 @@ ul.list{
   }
   .progress{
     @dist: 50px;
+    @max_dist: 4096px;
     animation: rotating 5000ms linear infinite;
     width: 100%;
     height: 0;
@@ -377,22 +384,22 @@ ul.list{
       transition: transform 5000ms;
     }
     svg:nth-child(1){
-      transform: rotate(0deg) translateY(10000px);
+      transform: rotate(0deg) translateY(@max_dist);
     }
     svg:nth-child(2){
-      transform: rotate(60deg) translateY(10000px);
+      transform: rotate(60deg) translateY(@max_dist);
     }
     svg:nth-child(3){
-      transform: rotate(120deg) translateY(10000px);
+      transform: rotate(120deg) translateY(@max_dist);
     }
     svg:nth-child(4){
-      transform: rotate(180deg) translateY(10000px);
+      transform: rotate(180deg) translateY(@max_dist);
     }
     svg:nth-child(5){
-      transform: rotate(240deg) translateY(10000px);
+      transform: rotate(240deg) translateY(@max_dist);
     }
     svg:nth-child(6){
-      transform: rotate(300deg) translateY(10000px);
+      transform: rotate(300deg) translateY(@max_dist);
     }
   }
 }
