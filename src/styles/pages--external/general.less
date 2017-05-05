@@ -111,12 +111,14 @@ footer{
     text-align: center;
     transform: translateX(-200%);
     transition: all 500ms 0ms;
+    .mobile({ width: 100%; top: 55%;});
     &>div{
       text-align: left;
       width: 110px;
       margin: auto;
       white-space: nowrap;
       margin-bottom: 20px;
+      .mobile({ text-align: center; width: 100%;});
     }
   }
   ul{
@@ -129,7 +131,8 @@ footer{
     top: 0;
     bottom: 0;
     padding: 0;
-
+    .mobile({ height: auto; padding-top: 60px;
+    });
     &:after{
       display: block;
       content: '';
@@ -144,6 +147,8 @@ footer{
     float: left;
     width: 25%;
     text-align: center;
+    .mobile({ width: 100%; margin-bottom: 35px;
+    });
     &:nth-child(1){
       transition-delay: 100ms * 2;
     }
