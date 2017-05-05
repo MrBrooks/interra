@@ -222,14 +222,6 @@ function ProjectSlider(conf, SM){
     initSM();
   }
 
-  function onScroll(){
-    var sT = $(window).scrollTop();
-    var c = slider.offset().top;// - slider.height()/2;
-    var x = (sT - c) / config.scope;
-    displace = config.easing(x)*config.maxDisplace;
-    updateDisplace();
-  }
-
   function updateDisplace(e){
     displace = (e.progress - 0.5)*2*config.maxDisplace;
     leftPart.css('transform', 'translateY('+displace+'px)');
@@ -245,7 +237,6 @@ function ProjectSlider(conf, SM){
     slides.removeClass(config.active);
     $(slides[current]).addClass(config.active);
     updateParts();
-    onScroll();
   }
 
   function Prev(){
