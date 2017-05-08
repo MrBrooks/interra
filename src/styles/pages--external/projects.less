@@ -5,6 +5,7 @@
   &>div{
     width: 50%;
     float: left;
+    .mobile({ width: 100%;});
   }
   &:after{
     content: '';
@@ -23,6 +24,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(../img/images/project.png);
+    .mobile({ height: 100vh;});
   }
   .overlay{
     color: @white;
@@ -36,6 +38,7 @@
     opacity: 0;
     transition: transform 0ms 400ms, opacity 200ms 400ms;
     padding: 10px;
+    .mobile({ opacity: 1; transform: scale(1); padding: 20px;});
   }
   .bg{
     background-color: rgba(37,37,37,.9);
@@ -45,6 +48,7 @@
     transform: scale(0);
     opacity: 0;
     transition: transform 400ms 250ms, opacity 400ms 0ms;
+    .mobile({ transform: scale(1); opacity: 1;});
   }
   .more{
     text-align: center;
@@ -61,6 +65,7 @@
     height: 66%;
     transform: translate3D(-200%, 0, 0);
     transition: transform 400ms 0ms;
+    .mobile({ transform: translate3D(0,0,0);});
   }
   a{
     color: inherit;
