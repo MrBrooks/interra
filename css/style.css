@@ -4542,6 +4542,13 @@ input[type='text'].invalid
 {
     margin-bottom: 100px;
 }
+@media screen and (max-width: 1024px)
+{
+    .contact-block .contacts .email
+    {
+        margin-bottom: 50px;
+    }
+}
 .contact-block .phone,
 .contact-block .title
 {
@@ -4550,6 +4557,14 @@ input[type='text'].invalid
 
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+@media screen and (max-width: 1024px)
+{
+    .contact-block .phone,
+    .contact-block .title
+    {
+        font-size: 18px;
+    }
 }
 .contact-block form .title
 {
@@ -4569,6 +4584,19 @@ input[type='text'].invalid
     left: 0;
 
     width: 50%;
+}
+@media screen and (max-width: 1024px)
+{
+    .contact-block--full .contacts
+    {
+        position: relative;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: auto;
+        padding: 96px 15px 50px;
+    }
 }
 #map
 {
