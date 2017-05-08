@@ -4603,6 +4603,13 @@ input[type='text'].invalid
     width: 100%;
     height: 700px;
 }
+@media screen and (max-width: 1024px)
+{
+    #map
+    {
+        height: 320px;
+    }
+}
 .video-block
 {
     position: relative;
