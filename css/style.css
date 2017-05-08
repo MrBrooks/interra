@@ -4206,6 +4206,13 @@ input[type='text'].invalid
 
     width: 50%;
 }
+@media screen and (max-width: 1024px)
+{
+    .projects-grid > div
+    {
+        width: 100%;
+    }
+}
 .projects-grid:after
 {
     display: block;
@@ -4231,6 +4238,13 @@ input[type='text'].invalid
     background-position: 50% 50%;
     background-size: cover;
 }
+@media screen and (max-width: 1024px)
+{
+    .project .image
+    {
+        height: 100vh;
+    }
+}
 .project .overlay
 {
     position: absolute;
@@ -4251,6 +4265,18 @@ input[type='text'].invalid
     opacity: 0;
     color: #fff;
 }
+@media screen and (max-width: 1024px)
+{
+    .project .overlay
+    {
+        padding: 20px;
+
+        -webkit-transform: scale(1);
+                transform: scale(1);
+
+        opacity: 1;
+    }
+}
 .project .bg
 {
     width: 100%;
@@ -4265,6 +4291,16 @@ input[type='text'].invalid
 
     opacity: 0;
     background-color: rgba(37, 37, 37, .9);
+}
+@media screen and (max-width: 1024px)
+{
+    .project .bg
+    {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+
+        opacity: 1;
+    }
 }
 .project .more
 {
@@ -4287,6 +4323,14 @@ input[type='text'].invalid
     -webkit-transform: translate3D(-200%, 0, 0);
             transform: translate3D(-200%, 0, 0);
     text-align: center;
+}
+@media screen and (max-width: 1024px)
+{
+    .project .info
+    {
+        -webkit-transform: translate3D(0, 0, 0);
+                transform: translate3D(0, 0, 0);
+    }
 }
 .project a
 {
