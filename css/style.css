@@ -4995,7 +4995,7 @@ input[type='text'].invalid
         max-width: 100%;
         margin-top: -100px;
         margin-left: 0;
-        padding: 0 1  5px;
+        padding: 0 15px;
     }
 }
 .steps-block:after
