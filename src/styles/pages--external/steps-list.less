@@ -9,11 +9,15 @@
     font-size: 88px;
     display: inline-block;
     vertical-align: top;
+    .mobile({ min-width: 70px;
+    });
   }
   .content{
     display: inline-block;
     vertical-align: top;
     padding: 0 80px;
+    .mobile({ padding: 0; padding-left: 0px; padding-right: 15px;
+    });
   }
   .step{
     float: left;
@@ -22,6 +26,9 @@
     min-height: 135px;
     &:nth-child(3){
       margin-left: 100%/12*2;
+      .mobile({ margin-left: 0;
+      });
     }
+    .mobile({ height: auto; width: 100%; min-height: initial; margin-bottom: 20px;});
   }
 }

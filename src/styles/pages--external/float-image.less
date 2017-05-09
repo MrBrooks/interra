@@ -1,14 +1,18 @@
 .float-image-block{
   padding-left: 20%;
   font-size: 0;
+  .mobile({ padding: 0;});
   .image{
     display: inline-block;
     vertical-align: middle;
     width: 400px;
-    height: 400px;
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
+    .mobile({ width: 100%;});
+    img{
+      width: 100%;
+    }
   }
   .content{
     font-size: 16px;
@@ -17,5 +21,7 @@
     width: ~"calc(100% - 400px)";
     max-width: 40%;
     margin-left: -8%;
+    .mobile({ width: 100%; max-width: 100%; margin-left: 0; padding: 0 1  5px; margin-top: -100px;
+    });
   }
 }

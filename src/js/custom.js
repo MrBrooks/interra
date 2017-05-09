@@ -2,6 +2,10 @@
 /* Custom JavaScript files supervisor */
 /**************************************/
 
+var GLOBAL_CONSTANT = {
+  mobile_width: 1023
+};
+
 $(window).load(function(){
   $("#preloader").removeClass('active');
 });
@@ -281,6 +285,14 @@ function TeamSlider(){
       margin: 10,
       nav: true,
       navText: ["<div id='arrow-prev'>","<div id='arrow-next'>"],
+      responsive : {
+        0 : {
+          items : 1,
+        },
+        1023 : {
+          items : 4,
+        }
+      }
     });
   }
 
@@ -345,8 +357,37 @@ function Tabs(config) {
     var pag = self.find(opts.paginations);
     var tab = self.find(opts.tab);
     tab.parent().css('min-height',getMaxHeight(tab)+"px");
-
+    if(true){
+      initMobile(this, pag, tab);
+    }
     pag.on('click',onPagClick);
+  }
+
+  function initMobile(tabs ,pags, contents){
+    var mtabs = $("<div class='mtabs'></div>");
+    var count = pags.length, generated = [];
+    for(var i = 0; i < count; i++){
+      generated.push(initMTab(pags[i], contents[i]));
+    }
+    // console.log(generated);
+    mtabs.append(generated);
+    $(tabs).append(mtabs);
+  }
+  function initMTab(pag, content){
+    var wrap = $("<div class='mtab'></div>"),
+        mpag = $("<div class='mpag'></div>"),
+        mcontent = $("<div class='mcontent'></div>");
+    mcontent.append($(content).html());
+    mpag.append($(pag).text());
+
+    wrap.append(mpag);
+    wrap.append(mcontent);
+    wrap.on('click',function(){
+      $(this).toggleClass(opts.active);
+      mcontent.slideToggle(500);
+    });
+
+    return wrap;
   }
 
   function onPagClick(){
@@ -495,7 +536,8 @@ function GoogleMapInit(){
     if(map_dom) {
       map = new google.maps.Map(map_dom, {
         center: {lat: 59.910452, lng: 30.344012},
-        zoom: 14
+        zoom: 14,
+        scrollwheel: false,
       });
       var marker = new google.maps.Marker({
         position: {lat: 59.911184, lng: 30.358373},

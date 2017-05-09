@@ -5,6 +5,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  .mobile({ max-height: 100vh;});
   h2{
     margin: 0;
   }
@@ -27,4 +28,11 @@
     max-width: 100%/12*8;
     font-size: 24px;
   }
+}
+.project-tabs{
+  h2{
+    .mobile({ padding-left: 15px;});
+  }
+  .mobile({ padding-left: 0; padding-right: 0;
+  });
 }
