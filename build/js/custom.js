@@ -233,7 +233,7 @@ function ProjectSlider(conf, SM){
   function updateDisplace(e){
     displace = (e.progress - 0.5)*2*config.maxDisplace;
     leftPart.css('transform', 'translateY('+displace+'px)');
-    rightPart.css('transform', 'translateY(-'+displace+'px)');
+    rightPart.css('transform', 'translateY('+(-displace)+'px)');
   }
 
   function updateParts(){
