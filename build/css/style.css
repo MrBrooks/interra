@@ -4634,6 +4634,7 @@ input[type='text'].invalid
 .contact-block .contacts
 {
     position: absolute;
+    z-index: 999;
     top: 80px;
     left: 70px;
 
