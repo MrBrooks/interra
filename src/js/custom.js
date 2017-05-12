@@ -15,6 +15,7 @@ $(document).ready(function() {
   var targetScroll = new TargetScroll();
   var langsSwitcher = new LanguageSwitcher();
   var simpleSlider = new SimpleSlider();
+  var displaceSLider = new DisplaceSlider();
   var projectSlider = new ProjectSlider({}, scrollMagicController);
   var fullProjectSlider = new SimpleFadeSlider({
     selector: "#full-project-slider"
@@ -181,6 +182,103 @@ function ClassTiker(options){
     clearInterval(interval);
   };
 
+
+  init();
+}
+
+function DisplaceSlider(conf) {
+  var defs = {
+    slider: "#displace-slider",
+    slides: ".item",
+    bg: ".bgitem",
+    text: ".titem",
+    prev: ".prev",
+    next: ".next",
+    active: "active",
+    leftPart: ".left",
+    rightPart: ".right",
+    maxDisplace: 20,
+    easing: function (x) {
+      return x;
+    },
+  };
+
+  var config = $.extend(defs, conf);
+
+  var slider, slidesL, slidesR, bgs, text, current, next, prev, count, displace, leftPart, rightPart, animFlag, timer;
+
+  function init(){
+    slider = $(config.slider);
+    if(slider.length === 0){
+      return 0;
+    }
+    leftPart = slider.find(config.leftPart);
+    rightPart = slider.find(config.rightPart);
+    slidesL = slider.find(config.leftPart+" "+config.slides);
+    slidesR = slider.find(config.rightPart+" "+config.slides);
+    bgs = slider.find(config.bg);
+    text = slider.find(config.text);
+    next = slider.find(config.next);
+    prev = slider.find(config.prev);
+    current = 0;
+    count = slidesL.length;
+    animFlag = false;
+
+    prev.on('click',Prev);
+    next.on('click',Next);
+    $(document).on('mousemove', updateDisplace);
+
+  }
+
+  function Prev(){
+    if( current === 0){
+      current = count - 1;
+    } else{
+      --current;
+    }
+    updateSlide();
+  }
+
+  function Next(){
+    current = (current + 1) % count;
+    updateSlide();
+  }
+
+  function updateSlide(){
+    updateBg();
+    updateParts();
+    updateText();
+  }
+
+  function updateBg(){
+    bgs.removeClass(config.active);
+    bgs.eq(current).addClass(config.active);
+  }
+
+  function updateParts(){
+    slidesL.removeClass(config.active);
+    slidesR.removeClass(config.active);
+    slidesR.eq(current).addClass(config.active);
+    slidesL.eq(current).addClass(config.active);
+  }
+
+  function updateText(){
+    text.removeClass(config.active);
+    text.eq(current).addClass(config.active);
+  }
+
+  function updateDisplace(e){
+    if(animFlag === true){
+      return 0;
+    }
+    animFlag = true;
+    timer = setTimeout(function(){
+      displace = config.easing((2*e.clientY/$(window).height() - 1))*config.maxDisplace;
+      leftPart.css("transform","translateY("+(displace)+"px)");
+      rightPart.css("transform","translateY("+(-displace)+"px)");
+      animFlag = false;
+    },50);
+  }
 
   init();
 }

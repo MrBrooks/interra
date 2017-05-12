@@ -140,3 +140,144 @@
     }
   }
 }
+.displaceSlider{
+  height: 500px;
+  width: 100%;
+  margin: 50px 0;
+  position: relative;
+  .prev{
+    position: absolute;
+    margin: auto;
+    top: ~"calc(50% - 20px)";
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    z-index: 1000;
+  }
+  .next{
+    position: absolute;
+    margin: auto;
+    top: ~"calc(50% + 20px)";
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    z-index: 1000;
+  }
+  .backgrounds{
+    height: 280px;
+    width: 100%/12*10;
+
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  .bgitem{
+    .background();
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 997;
+    transition: all 500ms 500ms;
+    &.active{
+      top: 0;
+      z-index: 998;
+      transition: all 500ms 0ms;
+    }
+  }
+  .main{
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  .left{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    transition: all 1000ms;
+    .item{
+      //padding-right: 50%;
+      left: 100%;
+      transition: left 500ms 500ms, opacity 0ms 500ms;
+      &.active{
+        left: 0;
+        transition: left 500ms 0ms, opacity 0ms 0ms, transform 100ms 100ms;
+      }
+    }
+  }
+  .right{
+    position: absolute;
+    width: 50%;
+    height: 500px;
+
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    transition: all 1000ms;
+    .item{
+      //padding-left: 50%;
+      left: 100%;
+      &.active{
+        left: -100%;
+      }
+    }
+  }
+  .center{
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    height: 87px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1001;
+    color: @white;
+    h2{
+      margin-top: 0;
+    }
+  }
+  .titem{
+    opacity: 0;
+    transition: opacity 500ms;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    &.active{
+      opacity: 1;
+      z-index: 1000;
+    }
+  }
+  .item{
+    width: 200%;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    //left: 100%;
+    z-index: 998;
+    .background();
+    background-clip: content-box;
+    transition: left 500ms 500ms, opacity 0ms 500ms;
+    opacity: 0;
+    &.active{
+      //left: 0;
+      opacity: 1;
+      z-index: 999;
+      transition: left 500ms 0ms, opacity 0ms 0ms;
+    }
+  }
+}
