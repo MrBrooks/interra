@@ -4103,6 +4103,8 @@ input[type='text'].invalid
     width: 83.33333333%;
     height: 280px;
     margin: auto;
+
+    opacity: .5;
 }
 .displaceSlider .bgitem
 {
