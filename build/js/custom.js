@@ -151,9 +151,9 @@ function ClassTiker(options){
   var defs = {
     selector: '.tik',
     active: 'active',
-    delay: 4000,
-    beforeTik: function(tiker){},
-    afterTik: function(tiker){}
+    delay: 10000,
+    beforeTik: function(){},
+    afterTik: function(){}
   };
 
   var opts = $.extend(defs, options);
@@ -170,7 +170,7 @@ function ClassTiker(options){
     opts.beforeTik(self);
     elements.removeClass(opts.active);
     curr = (curr + 1) % count;
-    $(elements.get(curr)).addClass(opts.active);
+    elements.eq(curr).addClass(opts.active);
     opts.afterTik(self);
   }
 
@@ -382,6 +382,7 @@ function TeamSlider(){
       items: 4,
       margin: 10,
       nav: true,
+      loop: true,
       navText: ["<div id='arrow-prev'>","<div id='arrow-next'>"],
       responsive : {
         0 : {
